@@ -1,6 +1,8 @@
 # Program for reading in two dates, then calculating the difference in days
 # Date format is DD MM YYYY
 
+# Range: 01 10 1582 - 31 12 9223372036854775807
+
 import functions
 
 f = open("test.txt", "r")
