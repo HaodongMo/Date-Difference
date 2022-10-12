@@ -34,30 +34,18 @@ for line in txt.splitlines():
     except:
         print("Invalid date format")
 
-    if year1 > year2:
-        raise Exception("Date 1 is after date 2")
+    # get dates in days from 1/1/1
 
-    diff_years = year2 - year1
+    days1 = functions.dateToDays(day1, month1, year1)
+    days2 = functions.dateToDays(day2, month2, year2)
 
-    if month1 > month2 and year1 == year2:
-        raise Exception("Date 1 is after date 2")
+    # calculate difference
 
-    diff_months = month2 - month1
+    diff = days2 - days1
+    
+    # display as date1, date2, diff
 
-    if day1 > day2 and month1 == month2 and year1 == year2:
-        raise Exception("Date 1 is after date 2")
-
-    diff_days = day2 - day1
-
-    if diff_years > 0:
-        for i in range(year1, year2):
-            if functions.isLeapYear(i):
-                diff_days += 366
-            else:
-                diff_days += 365
-
-    if diff_months > 0:
-        for i in range(month1, month2):
-            diff_days += functions.daysInMonth(i, year1)
-
-    print(line, ", ", diff_days, sep="")
+    if diff >= 0:
+        print(dates[0] + ", " + dates[1] + ", " + str(diff))
+    else:
+        print(dates[1] + ", " + dates[0] + ", " + str(diff * -1))

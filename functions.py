@@ -22,3 +22,22 @@ def daysInMonth(month, year):
             return 28
     else:
         return 0
+
+def daysInYear(year):
+    if isLeapYear(year):
+        return 366
+    else:
+        return 365
+
+def dateToDays(day, month, year):
+    days = 0
+
+    for i in range(1, year):
+        days += daysInYear(i)
+
+    for i in range(1, month):
+        days += daysInMonth(i, year)
+
+    days += day
+
+    return days
